@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, UserPlus, Settings, Server as ServerIcon, LogOut, Menu } from 'lucide-react';
+import { LayoutDashboard, UserPlus, Settings, Server as ServerIcon, LogOut, Menu, Users } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -32,6 +32,18 @@ const Layout: React.FC<LayoutProps> = ({ children, activeView, onNavigate }) => 
             <span className="font-medium">Dashboard</span>
           </button>
           
+          <button
+            onClick={() => onNavigate('users-list')}
+            className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
+              activeView === 'users-list' 
+                ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' 
+                : 'hover:bg-slate-800 hover:text-white'
+            }`}
+          >
+            <Users className="w-5 h-5" />
+            <span className="font-medium">Users List</span>
+          </button>
+
           <button
             onClick={() => onNavigate('create-user')}
             className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
